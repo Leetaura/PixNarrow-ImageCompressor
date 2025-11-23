@@ -60,14 +60,20 @@ export default function Home() {
                   <p className="text-sm opacity-90">Your image is now {compressionRate}% smaller!</p>
                   <p className="text-base font-semibold">
                     {file && compressedFile && (
-                      <>{(file.size / 1024).toFixed(2)} KB → {(compressedFile.size / 1024).toFixed(2)} KB</>
+                      <>
+                        {(file.size / 1024).toFixed(2)} KB → {(compressedFile.size / 1024).toFixed(2)} KB
+                      </>
                     )}
                   </p>
                 </div>
               </div>
 
               {/* Download Button */}
-              <a href={URL.createObjectURL(compressedFile)} download={`compressed-${file?.name || 'image.jpg'}`} className="inline-flex items-center gap-2 px-5 py-2 bg-white text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition shadow-lg text-sm">
+              <a
+                href={URL.createObjectURL(compressedFile)}
+                download={`compressed-${file?.name || "image.jpg"}`}
+                className="inline-flex items-center gap-2 px-5 py-2 bg-white text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition shadow-lg text-sm"
+              >
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M10 12l-5-5h3V3h4v4h3l-5 5zm-7 3h14v2H3v-2z" />
                 </svg>
